@@ -1,0 +1,68 @@
+<div class="body-home">
+<header>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item active" style="background-image: url('https://product.hstatic.net/1000260990/product/1_c7a22c63618a4b84bae1cff5af1e6ad1.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>First Slide</h3>
+          <p>This is a description for the first slide.</p>
+        </div>
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('https://media3.scdn.vn/img2/2017/12_15/MtXcqf_simg_b5529c_250x250_maxb.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Second Slide</h3>
+          <p>This is a description for the second slide.</p>
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div class="carousel-item" style="background-image: url('https://chovacho.com/files/sanpham/820/1/jpg/quan-jeans-nam-den-skiny-classic-si.jpg')">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Third Slide</h3>
+          <p>This is a description for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</header>
+<div class="container">
+  <h1 class="my-4">Welcome to Modern Business</h1>
+  <!-- Marketing Icons Section -->
+  <div class="content" *ngFor="let subject of listProduct">
+    <div class="body-product">
+      <div class="card h-100">
+        <div class="card-body">    
+          <div class="text-center" *ngIf="subject.productImage[0]">
+          <img class= "img-body" [src]="subject.productImage[0].productImage"/>
+        </div>
+        <p class="card-header-product">{{subject.productName}}<p>
+        <p class="card-text" *ngIf= "subject.producer">Nhà sản xuất: {{subject.producer.producerName}}</p>
+        <i class="card-text-nsx">Giá: {{subject.price}}đ</i>
+        </div>
+        <div class="card-footer">
+          <a [routerLink] ="['/home/product-detail/',subject.productId]">Xem chi tiết</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Features Section -->
+  <hr>
+  <!-- Call to Action Section -->
+</div>
+<!-- Page Content -->
+</div>
+ 

@@ -1,0 +1,104 @@
+<div class="container content">
+    <div class="row">
+        <div class="col-3 search">
+            <div>Tìm kiếm nâng cao</div>
+            <div class="danhmuc">
+                <div>Danh mục</div>
+                <ul>
+                    <li>
+                        <a routerLink="#">Áo thun</a>
+                    </li>
+                    <li>
+                        <a routerLink="#">Áo thun có cổ</a>
+                    </li>
+                    <li>
+                        <a routerLink="#">Áo sơ mi</a>
+                    </li>
+                    <li>
+                        <a routerLink="#">Áo khoác</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="thuonghieu">
+                <div>Thương hiệu</div>
+                <ul>
+                    <li *ngFor="let producer of producers">
+                        <a routerLink="#{/producerId}">{{producer.producerName}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="size">
+                <div>Kích cở</div>
+                <ul>
+                    <li>
+                        <a routerLink="#">S</a>
+                    </li>
+                    <li>
+                        <a routerLink="#">M</a>
+                    </li>
+                    <li>
+                        <a routerLink="#">L</a>
+                    </li>
+                    <li>
+                        <a routerLink="#">XL</a>
+                    </li>
+                    <li>
+                        <a routerLink="#">XXL</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="price">
+                <div>Gía tiền</div>
+                <ul>
+                    <li>
+                        <a routerLink="#">Dưới 100.000đ</a>
+                    </li>
+                    <li>
+                        <a routerLink="#">100.000đ - 200.000đ</a>
+                    </li>
+                    <li>
+                        <a routerLink="#">200.000đ - 300.000đ</a>
+                    </li>
+                    <li>
+                        <a routerLink="#">300.000đ - 400.000đ</a>
+                    </li>
+                    <li>
+                        <a routerLink="#">400.000đ - 500.000đ</a>
+                    </li>
+                    <li>
+                        <a routerLink="#">Trên 500.000đ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="row sort">
+                <div class="ml-auto">
+                    <label>Sắp xếp</label>
+                    <select>
+                        <option>Gía tăng dần</option>
+                        <option>Gía giảm dần</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 product-item" *ngFor="let product of products">
+                    <div class="card h-100">
+                        <div class="card-image">
+                            <img class="product-image" [src]="product.productImage"
+                            />
+                        </div>
+                        <div class="card-body">
+                            <strong>{{product.productName}}</strong>
+                            <span>{{product.producerName}}</span>
+                            <span>{{product.price}}đ</span>
+                        </div>
+                        <div class="card-footer">
+                            <a (click)="productDetail(product.productId)" class="btn btn-primary">Mua</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

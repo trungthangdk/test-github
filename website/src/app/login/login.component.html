@@ -1,0 +1,141 @@
+<!-- <div class="login-content">
+  <form #formSignIn="ngForm" class="form-login">
+    <div class="row">
+      <h3>Đăng nhập</h3>
+    </div>
+    <div class="row">
+      <label>Tên đăng nhập</label>
+    </div>
+    <div class="row">
+      <input class="form-control" name="username" ngModel #txtUserName="ngModel" placeholder="Tên đăng nhập" type="text" required/>
+
+      <div style="display: block; color: red"  *ngIf="txtUserName.touched && txtUserName.errors?.required">user name is not null</div>
+
+</div>
+<div class="row">
+  <label>Mật khẩu</label>
+</div>
+<div class="row">
+  <input class="form-control" name="password" ngModel #txtPassword="ngModel" placeholder="Mật khẩu" type="password" required/>
+
+  <div style="display: block; color: red"  *ngIf="txtPassword.touched &&txtPassword.errors?.required">user name is not null</div>
+
+</div>
+<div class="row">
+  <button style="width: 100%" (click)="submit(formSignIn)" type="button" class="btn btn-primary">Đăng nhập</button>
+</div>
+</form>
+</div> -->
+<div class="row content">
+  <div class="dangnhap container">
+    <div class="row align-items-center login">
+      <div class="form_dangnhhap">
+        <form class="form_conten row" #formSignIn="ngForm">
+          <div class="dangnhap_taikhoang_matkhau col-6">
+            <h4 class="h4_conten">QUÝ KHÁCH VUI LÒNG ĐĂNG NHẬP</h4>
+
+            <div class="thongtinbatbuoc">*thông tin bắt buộc</div>
+            <div class="alert alert-danger" [hidden]="!errorLogin">
+              UserName hoặc Password không đúng
+            </div>
+            <div class="taikhoang_matkhau">
+              <label>Địa chỉ email
+                <span>*</span>
+              </label>
+              <div class="taikhoang">
+                <input type="text" name="username" ngModel #txtUserName="ngModel" required placeholder="Tên đăng nhập của bạn" class="input_tendangnhap form-control"
+                />
+                <div style="display: block; color: red"  *ngIf="txtUserName.touched && txtUserName.errors?.required">UserName không được bỏ trống</div>
+            </div>
+            <label>Mật khẩu
+              <span>*</span>
+            </label>
+            <div class="taikhoang">
+              <input type="password" name="password" ngModel #txtPassword="ngModel" required placeholder="mật khẩu" class="input_tendangnhap form-control"
+              />
+              <div style="display: block; color: red"  *ngIf="txtPassword.touched &&txtPassword.errors?.required">Password không được bỏ trống</div>
+          </div>
+          <!-- <a href="#"><span class="span">Bạn quên mất mật khẩu?</span></a> -->
+      </div>
+      <button class="button_dangnhap" (click)="submit(formSignIn)" type="submit">ĐĂNG NHẬP</button>
+    </div>
+    <div class="dangky col-6">
+      <h4 class="h4_conten">BẠN CHƯA CÓ TÀI KHOẢN?</h4>
+      <div class="dangky_conten">
+        <label>Đăng ký tài khoản hoàn toàn miễn phí</label>
+        <!-- <button class="button_dangnhap" type="button">TẠO TÀI KHOẢN MỚI</button> -->
+        <button type="button" class="button_dangnhap" data-toggle="modal" data-target="#exampleModalLong">
+          TẠO TÀI KHOẢN MỚI
+        </button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form class="form_conten" id="register" #fromRegister="ngForm">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Tạo tài khoản</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="conten" style="width: 100%;">
+            <div class="dangky" style="width: 100%;">
+              <div class="form_dangky">
+
+                <div class="dangky_conten">
+                  <label class="label">* Thông tin bắt buộc</label>
+                  <label>Tên
+                    <span>*</span>
+                  </label>
+                  <input class="ten form-control" name="name" ngModel type="text" value="" placeholder="Vui lòng nhập tên của quý khách" />
+                  <label>Địa chỉ email
+                    <span>*</span>
+                  </label>
+                  <input class="diachi form-control" name="email" ngModel type="email" value="" placeholder="Vui lòng nhập địa chỉ email của quý khách"
+                  />
+                  <label>Tên đăng nhập
+                    <span>*</span>
+                  </label>
+                  <input class="tendangnhap form-control" name="username" ngModel type="text" value="" placeholder="Vui lòng nhập tên đăng nhập" />
+                  <label>Mật khẩu
+                    <span>*</span>
+                  </label>
+                  <input class="matkhau form-control" name="password" ngModel type="password" value="" placeholder="Vui lòng nhập mật khẩu" />
+                  <label>Nhập lại mật khẩu
+                    <span>*</span>
+                  </label>
+                  <input class="matkhau form-control" name="password" ngModel type="password" value="" placeholder="Vui lòng nhập lại mật khẩu" />
+                  <label>Nhập số điện thoại
+                    <span>*</span>
+                  </label>
+                  <input class="matkhau form-control" name="phone" ngModel type="number" value="" placeholder="Vui lòng nhập Số điện thoại" />
+                  <label>Ngày sinh</label>
+                  <input class="form-control" name="birthday" ngModel type="date" placeholder="DD/MM/YYYY" />
+                  <label>Giới tính
+                    <span>*</span>
+                  </label>
+                  <div class="gioitinh">
+                    Nam:
+                    <input name="gioitinh" type="radio" value="true" /> Nữ:
+                    <input name="gioitinh" type="radio" value="false" />
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="reset()" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+          <button type="submit" (click)="register(formRegister)" class="btn btn-primary">Tạo tài khoản</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

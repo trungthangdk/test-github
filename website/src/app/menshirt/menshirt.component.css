@@ -1,0 +1,33 @@
+.search ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.search{
+    border: 1px solid black;
+    display: inline-table;
+}
+.content{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.product-image{
+    width: 200px;
+    height: 200px; 
+    margin: auto; 
+    display: block;
+    padding-top: 20px;
+}
+.sort{
+    padding: 0 15px;
+}
+.product-item{
+    margin: 15px 0;
+}
+.card-body{
+    display: contents;
+    text-align: center;
+}
+.card-footer{
+    text-align: center;
+}

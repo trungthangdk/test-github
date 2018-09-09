@@ -1,0 +1,57 @@
+<div class="container">
+  <h2>Giỏ hàng</h2>
+  <div class="row cart-head">
+    <div class="col-6 head">
+      <span>Tên sản phẩm</span>
+    </div>
+    <div class="col-2 head">
+      <span>Đơn giá</span>
+    </div>
+    <div class="col-2 head">
+      <span>Số lượng</span>
+    </div>
+    <div class="col-2 head">
+      <span>Tổng</span>
+    </div>
+  </div>
+  <div *ngIf="isNull; else cartList">
+    Giỏ hàng trống
+  </div>
+  <ng-template #cartList>
+    <div *ngFor="let product of products">
+      <div class="row cart-item align-items-center">
+        <div class="col-6">
+          <div class="row">
+            <div class="col-3 cart-image">
+              <img style="width: 100px; height: 100px;" [src]="product.productImage" />
+            </div>
+            <div class="col-9 cart-item-detail">
+              <strong>{{product.productName}}</strong>
+              <span>Màu: {{product.color}}</span>
+              <span>Size: {{product.size}}</span>
+              <span>Nhà sản xuất: {{product.producerName}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <span>{{product.price}}</span>
+        </div>
+        <div class="col-2">
+          <input style="width: 50px;" type="number" max="100" min="1" name="quantity" [(ngModel)]="product.quantity"/>
+        </div>
+        <div class="col-2">
+          <div class="row total-delete">
+              <span>{{product.total}}</span>
+              <a (click)="deleteCartItem(product)" class="ml-auto"><img style="width: 20px; height: 20px;" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Saint_Andrew%27s_cross_black.svg"/></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="col-12">
+        <button (click)="addOrder()" class="btn btn-primary" type="button">Đặt hàng</button>
+      </div>
+    </div>
+  </ng-template>
+
+</div>

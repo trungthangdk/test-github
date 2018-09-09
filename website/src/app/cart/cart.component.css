@@ -1,0 +1,29 @@
+.head{
+    padding: 15px;
+}
+.cart-head{
+    background-color: #f4f4f4;
+}
+.cart-item{
+    padding: 15px;
+}
+.cart-image{
+    display: inline-block;
+}
+.cart-item-detail{
+    display: inline-block;
+}
+.cart-item-detail > strong{
+    display: block;
+}
+.cart-item-detail > span {
+    display: block;
+}
+.center{
+    display: inline-block;
+}
+.total-delete{
+    padding: 0 15px;
+}
+
+

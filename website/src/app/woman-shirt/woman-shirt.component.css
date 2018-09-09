@@ -1,0 +1,26 @@
+.body-product{
+    border-style: solid 1px;
+    height: 500px;
+    width: 30%;
+    float: left;
+    padding: 5px;
+    margin: 1px;
+    text-align: center;
+}
+.body-home{
+    display: flow-root;
+    margin-bottom: 100px;
+}
+.content{
+    margin-left: 85px;
+}
+.card-header-product{
+    margin-top: 5px;
+}
+.list-product{
+    margin-left: 50px;
+}
+.img-body{
+    width: 250px;
+    height: 250px;
+}

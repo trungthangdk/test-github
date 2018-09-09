@@ -1,0 +1,46 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/home">Shop Quần Áo</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <form style="display: inline-flex">
+        <input class="form-control search" placeholder="Tìm kiếm"/>
+        <button class="btn btn-primary btn-search">Tìm kiếm</button>
+      </form>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Trang chủ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/male-pants">Quần nam</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/female-pants">Quần nữ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/menshirt">Áo nam</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/woman-shirt">Áo nữ</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="!login" class="nav-link" title="Đăng nhập" style="display: inline-block" routerLink="/login">
+            <img style="width: 30px; height: 30px;" src="https://cdn.onlinewebfonts.com/svg/img_311846.png">
+          </a>
+          <a *ngIf="login" class="nav-link" title="Đăng xuất" style="display: inline-block" (click)="logout()">
+            <img style="width: 30px; height: 30px;" src="https://cdn.onlinewebfonts.com/svg/img_311846.png">
+            <!-- <span>{{}}</span> -->
+          </a>
+          <span style="display: inline-block; margin: 0 15px;">|</span>
+          <a class="nav-link" title="Giỏ hàng" style="display: inline-block" routerLink="/cart">
+            <img style="width: 30px; height: 30px;" src="https://cdn.onlinewebfonts.com/svg/img_82160.png">
+            <span class="icon-cart" [ngStyle]="{'display':order?'block':'none'}">{{order}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+

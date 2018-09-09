@@ -1,0 +1,93 @@
+<div class="body-product-detail">
+  <div class="row">
+    <div class="xemchitiet container">
+      <div class="xemchitiet_top">
+        <div class="xemchitiet_hinh">
+          <img id="hinh" class="xemchitiet_img" [src]="urlImage" />
+          <div class="xemchitiet_listhinh">
+            <div class="div_hinh" *ngFor="let image of listImage">
+              <img (click)="changeImage(image.productImage)" class="list_hinh" [src]="image.productImage" />
+            </div>
+          </div>
+        </div>
+        <div class="xemchitiet_thongtin">
+          <div class="xemchitiet_tensanpham">
+
+            <span class="span_tensanpham">{{product.productName}}</span>
+            <hr/>
+            <div class="xemchitiet_gia">
+              <span class="giatien">{{product.price}} đ</span>
+            </div>
+
+
+            <div class="xemchitiet_nhasanxuat">
+              Nhà cung cấp: {{producerName}}
+            </div>
+
+            <div class="xemchitiet_mausac">
+              Màu sắc
+            </div>
+
+            <div class="xemchitiet_list_mau">
+              <ul class="ul_mau">
+                <li *ngFor="let color of listColor, let i=index" (click)="chonmau(color.colorId,i)" [ngStyle]="{'border':getSelectedColor(i)}"
+                  class="li_mau">
+                  <div class="mausac" [ngStyle]="{'background-color':color.color}"></div>
+                </li>
+
+              </ul>
+            </div>
+
+            <div class="xemchitiet_size">
+              Size
+            </div>
+            <div class="xemchitiet_list_size">
+              <ul class="ul_mau">
+                <li *ngFor="let size of listSize, let i=index" (click)="chonsize(size.sizeId,i)" [ngStyle]="{'border':getSelectedSize(i)}"
+                  class="li_size">
+                  <div class="mausac">
+                    <span class="span_size">{{size.size}}</span>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+
+            <div class="xemchitiet_size">
+              Số lượng
+            </div>
+            <div class="xemchitiet_soluong">
+              <div (click)="tru()" class="button_tru"></div>
+              <input id="soluong" class="input_soluong" type="text" disabled [(ngModel)]="quantity" />
+              <div (click)="cong()" class="button_cong"></div>
+            </div>
+            <button class="xemchitiet_datmua" (click)="order(product.productId)">ĐẶT MUA</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- -->
+    <div class="thongtin_mota_danhgia container">
+      <ul class="ul_thongtin_mota_danhgia">
+        <li id="li_danhgia" class="li_thongtin">
+          <span id="danhgia" class="thongtinsanpham">ĐÁNH GIÁ</span>
+        </li>
+      </ul>
+      <div id="div_danhgia" class="div_danhgia">
+        <label>TÊN CỦA BẠN</label>
+        <br />
+        <input id="tenbinhluan" class="tenbinhluan" type="text" placeholder="Tên của bạn" />
+        <br />
+        <label>SAO</label>
+        <br />
+        <label>CHIA SẺ Ý KIẾN CỦA BẠN</label>
+        <br />
+        <div class="div_ykien">
+          <input id="ykien" class="ykiem" type="text" placeholder="Ý kiến của bạn" />
+        </div>
+        <button class="guidanhgia">GỬI ĐÁNH GIÁ</button>
+
+      </div>
+    </div>
+  </div>
+</div>

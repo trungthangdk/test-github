@@ -1,0 +1,99 @@
+<!-- form-Create -->
+<div class="list-btn">
+    <button class="btn btn-primary btn-lg" (click) = "displayFormCreate()">Create</button>
+  </div>
+
+<div class="form-product" *ngIf = "displayForm" ng-app="formValidation">
+    <form #addProduct="ngForm">
+      <div class="form-group">
+        <label for="productName">Product Name:</label>
+        <input  type="text" class="form-control" name="product" ngModel #txtproductName = "ngModel" [(ngModel)] = "productNameUpdate"  required>
+      </div>
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input  type="text" class="form-control" name="price" ngModel #txtPrice= "ngModel" [(ngModel)] = "priceUpdate" required>
+      </div>
+      <div class="list-type">
+      <label for="ProductType">ProductType:</label>
+      <select class="form-control" (change) = "selectChangeProductType($event)" [(ngModel)] = "selectedProductType" id="ProductType" name="ProductType">
+        <option  *ngFor = "let listType of listProductType" [selected]="listType.typeId == typeIdUpdate?'true':'false'" value = {{listType.typeId}}>{{listType.typeName}}</option>
+      </select>
+    </div>
+    <div class="list-producer">
+      <label for="Producer">Producer:</label>
+      <select class="form-control" (change) = "selectChangeProducer($event)" [(ngModel)] = "selectedProducer" id="Producer" name="Producer">
+        <option *ngFor = "let listProducer of listProducer" [selected]="listProducer.producerId == producerIdUpdate?'true':'false'" value = {{listProducer.producerId}}>{{listProducer.producerName}}</option>
+      </select>
+    </div>
+      <div class="form-group">
+        Color: 
+          <label class="checkbox-inline"><input type="checkbox" [checked] ="fillRED" (click) = "clickRED()" value="RED"> RED </label>
+          <label class="checkbox-inline"><input type="checkbox" [checked] ="fillBLUE" (click) = "clickBLUE()"  value="BLUE"> BLUE </label>
+          <label class="checkbox-inline"><input type="checkbox" [checked] ="fillGREEN" (click) = "clickGREEN()" value="GREEN"> GREEN </label>
+          <label class="checkbox-inline"><input type="checkbox" [checked] ="fillPINK" (click) = "clickPINK()" value="PINK"> PINK </label>
+          <label class="checkbox-inline"><input type="checkbox" [checked] ="fillBLACK" (click) = "clickBLACK()" value="BLACK"> BLACK </label>
+          <label class="checkbox-inline"><input type="checkbox" [checked] ="fillGRAY" (click) = "clickGRAY()" value="GRAY"> GRAY </label>
+      </div>
+      <div class="form-group">
+        Size: 
+          <label class="checkbox-inline"><input type="checkbox" [checked] ="fillSizeX" (click) = "clickSizeX()" value="X"> X </label>
+          <label class="checkbox-inline"><input type="checkbox" [checked] ="fillSizeM" (click) = "clickSizeM()" value="M"> M </label>
+          <label class="checkbox-inline"><input type="checkbox" [checked] ="fillSizeL" (click) = "clickSizeL()" value="L"> L </label>
+          <label class="checkbox-inline"><input type="checkbox" [checked] ="fillSizeXL" (click) = "clickSizeXL()" value="XL"> XL </label>
+          <label class="checkbox-inline"><input type="checkbox" [checked] ="fillSizeXXL" (click) = "clickSizeXXL()" value="XXL"> XXL </label>
+      </div>
+      <div class="form-group">
+        <label for="image">Image:</label>
+        <input type="file" class="form-control"  name="image" ngModel #txtImage = "ngModel" [(ngModel)] = "imageUpdate" ng-model="files" >
+      </div>
+
+
+      <button (click)="onSubmit(addProduct);" type="button" class="btn btn-primary" *ngIf = "!displayBtn">Submit</button>
+      <button *ngIf = "displayBtn" type="button" class="btn btn-primary" (click) = "clickSave(productIdUpdate,addProduct);">Save</button>
+    </form>
+  </div>
+
+  <!-- form-showlist -->
+<div class="table-list">  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Product Type</th>
+        <th>Producer Name</th>
+        <th>Color</th>
+        <th>Size</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody *ngFor = "let product of listProduct">
+      <tr>
+        <td>{{product.productName}}</td>
+        <td>{{product.price}}đ</td>
+        <td>{{product.productType.typeName}}</td>
+        <td>{{product.producer.producerName}}</td>
+        <td>
+        <div *ngFor = "let listColor of product.color" ><i class="list-color" *ngIf = "listColor.color">{{listColor.color}}</i></div>
+      </td>
+      <td>
+        <div *ngFor = "let listSize of product.size"><i *ngIf = "listSize.size">{{listSize.size}}</i></div>
+      </td>
+        <td>
+          <div *ngFor = "let listImage of product.productImage"><i *ngIf = "listImage.productImage">{{listImage.productImage}}</i></div>
+        </td>
+        <td>
+         <div>
+          <button class="btn btn-primary btn-md btn-update"(click) = "clickFillData(product.productId);displayButton();clickClearData();">Update</button>
+          &nbsp;
+          <button class="btn btn-primary btn-md btn-delete" (click) = "clickDelete(product.productId);">Delete</button>
+        </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+
+
+
